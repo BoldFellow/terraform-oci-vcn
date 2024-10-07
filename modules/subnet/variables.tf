@@ -54,3 +54,10 @@ variable "tenancy_id" {
   description = "Tenancy OCID"
   type        = string
 }
+
+
+variable "security_list_ids" {
+  description = "values of security list ids"
+  type        = list(string)
+  default     = null
+}

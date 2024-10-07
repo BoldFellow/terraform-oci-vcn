@@ -29,12 +29,13 @@ module "subnet" {
   vcn_id         = oci_core_vcn.vcn.id
   ig_route_id    = var.create_internet_gateway ? oci_core_route_table.ig[0].id : null
   nat_route_id   = var.create_nat_gateway ? oci_core_route_table.nat[0].id : null
-
+  security_list_ids = [oci_core_security_list.public_security_list.id]
   freeform_tags = var.freeform_tags
 
   count = length(var.subnets) > 0 ? 1 : 0
 
 }
+
 
 locals {
   vcn_id = oci_core_vcn.vcn.id
